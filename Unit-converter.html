@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <script language="javascript">
+        function convert(){
+            var Conversion;
+            var num1=parseFloat(document.getElementById("num").value);
+            var choice1=document.getElementById("choose1").value;
+            var choice2=document.getElementById("choose2").value;
+            if(isNaN(num1)){
+                alert("Please enter a number");
+            }
+            else{
+            if (choice1=="Celsius") {
+
+            if (choice2=="Fahrenheit") {
+                Conversion=(num1*1.8)+32;
+                document.getElementById("Converted").value=Conversion+"°F";
+            }
+            else if (choice2=="Kelvin") {
+                Conversion=num1+273.15;
+                document.getElementById("Converted").value=Conversion+"K";
+            }
+            else {
+                alert("Please select two different units to convert");
+            }
+            }
+            else if (choice1=="Fahrenheit") {
+                if (choice2=="Kelvin") {
+                    Conversion=((num1-32)*0.55556)+273.15;
+                document.getElementById("Converted").value=Conversion+"K";
+            }
+            else if (choice2=="Celsius") {
+                Conversion=(num1-32)*0.55556;
+                document.getElementById("Converted").value=Conversion+"°C";
+            }
+            else {
+                alert("Please select two different units to convert");
+            }    
+            }
+            else if (choice1=="Kelvin") {
+                
+                if (choice2=="Fahrenheit") {
+                Conversion=(num1-273.15)*1.8+32;
+                document.getElementById("Converted").value=Conversion+"°F";
+            }
+            else if (choice2=="Celsius") {
+                Conversion=(num1-273.15);
+                document.getElementById("Converted").value=Conversion+"°C";
+            }
+            else {
+                alert("Please select two different units to convert");
+            }    
+            }
+        }        
+        }
+
+    </script>
+    <style>
+       body{
+        background-image:url(Background-Unit.jpg);
+        background-repeat:;
+        display: flex;
+        width: 500px;
+        justify-content:center;
+        align-items: center;
+        padding: 5%;
+        margin-left:25%;
+        margin-top: 5%;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    input{
+        height: 50px;
+        width: 300px;
+        padding: 2px;
+        margin: 10px;
+        background-color:#F7C5CC;
+        border-radius: 10px;
+        text-align: center;
+        color:rgb(7, 7, 7);
+        font-size: 20px;
+    }
+    select{
+        height: 60px;
+        width: 300px;
+        background-color:purple;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2px;
+        margin: 10px;
+        color: rgb(7,7,7);
+        font-size: 20px;
+    }
+    option{
+        background-color:#CC313D;
+        color: rgb(7, 7, 7);
+        font-size: 20px;
+    }
+    button{
+        height: 14px;
+        width: 240px;
+        background-color:#f72585;
+        color:white;
+        text-transform: uppercase;
+        border-radius: 2px;
+        padding: 2px;
+        font-size: 20px;
+        margin: 10px;
+    }
+    thead{
+        font-size: 45px;
+    }
+    </style>
+</head>
+<body> 
+    <table>
+        <tr>
+            <td>
+                <select id="choose1">
+                    <option>Celsius</option>
+                    <option>Fahrenheit</option>
+                    <option>Kelvin</option>
+                </select>
+                </td>
+                <td>
+                <select id="choose2">
+                    <option>Celsius</option>
+                    <option>Fahrenheit</option>
+                    <option>Kelvin</option>
+                </select>
+        </td>
+    </tr>
+        <tr>
+            <td><input type="text" placeholder="Please enter number" id="num"></td>
+            <td><input type="text" id="Converted"></td>
+        </tr>
+    <tr>
+      <td colspan="2"><center><input type="button" value="Convert" placeholder="After conversion" onclick="convert()"></center></td>  
+    </tr>
+</table>    
+</body>
+</html>
